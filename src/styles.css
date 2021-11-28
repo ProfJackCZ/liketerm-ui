@@ -1,0 +1,166 @@
+:root {
+    --c-theme: #E95420 ;
+    --c-background: #111111;
+    --c-text: white;
+    --c-border: white;
+    --c-ok: #0E8420;
+    --safespace: 25px;
+    --page-margin: 10%;
+
+    --line-height: 25px;
+    --font-size: 16px;
+}
+
+@font-face {
+    font-family: SourceCodePro;
+    src: url("fonts/SourceCodePro/SourceCodePro-Light.ttf");
+}
+
+
+
+* {
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+}
+
+
+
+body {
+    color: var(--c-text);
+    background-color: var(--c-background);
+    margin: 0px;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: SourceCodePro;
+}
+
+
+
+main {
+    padding-left: var(--page-margin);
+    padding-right: var(--page-margin);
+}
+
+
+
+button {
+    background-color: var(--c-background);
+    color: var(--c-text);
+    font-family: SourceCodePro;
+    font-size: var(--font-size);
+    margin: 0px auto 0px auto;
+    border: none;
+
+    width: fit-content;
+    height: calc(var(--line-height)+1)px;
+}
+
+button::after {
+    content: " ]";
+}
+
+button::before {
+    content: "[ ";
+}
+
+button:hover {
+    background-color: var(--c-ok);
+}
+
+
+
+header {
+    background-color: var(--c-theme);
+    height: 40px;
+    padding-left: var(--page-margin);
+    
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+header > h1 {
+    font-weight: 500;
+}
+
+
+
+label {
+    margin: var(--safespace) var(--safespace) var(--safespace) 0px;
+    min-width: fit-content;
+}
+
+label::after {
+    content: ":"
+}
+
+input {
+    height: var(--line-height);
+    padding: 0px 2px;
+    border-radius: 0px;
+    border: none;
+    margin: var(--safespace) 0px;
+    width: 66%;
+}
+
+div.input {
+    display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+
+div.overlay {
+    position: fixed;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+    width: 99.99%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+div.modal {
+    border: 2px solid var(--c-border);
+    width: 45%;
+    margin: 15% auto;
+    padding: var(--safespace);
+    padding-top: 0px;
+    background-color: var(--c-background);
+}
+
+div.modal > h2 {
+    margin: 0px auto 0px auto;
+    transform: translateY(calc(-.75*var(--line-height)));
+    background-color: var(--c-background);
+    text-align: center;
+
+    width: fit-content;
+    padding: 0px var(--safespace) 0px var(--safespace);
+
+}
+
+div.modal > p {
+    margin: 0px;
+}
+
+
+
+div.vstack {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: var(--safespace);
+}
+
+div.hstack {
+    display: flex;
+    flex-direction: row;
+    align-self: end;
+    width: 100%;
+}
